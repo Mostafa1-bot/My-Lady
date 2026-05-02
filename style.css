@@ -1,0 +1,104 @@
+/* ضبط عام للشاشة لضمان توسيع العناصر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* خط ناعم وعصري */
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* خلفية متدرجة وردية ناعمة وعاطفية */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    overflow: hidden; /* لمنع ظهور شريط التمرير عند هروب زر لا */
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* الكارد الأبيض المركزي */
+.question-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* أقصى عرض على الكمبيوتر */
+    transition: all 0.3s ease-in-out; /* حركة ناعمة عند تغيير المحتوى */
+}
+
+h1 {
+    color: #ff1a8c; /* لون وردي غامق للعناوين */
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* منطقة الأزرار */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 60px; /* لتثبيت مكان زر "لا" */
+    position: relative;
+    z-index: 10; /* عشان يفضل فوق الصورة لو حصل تداخل */
+}
+
+.btn {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 120px;
+}
+
+.btn:hover {
+    transform: scale(1.05); /* تكبير بسيط عند الوقوف بالماوس */
+}
+
+/* زر نعم ❤️ */
+.btn.yes {
+    background-color: #ff4d94;
+    color: white;
+}
+
+.btn.yes:hover {
+    background-color: #ff1a75;
+}
+
+/* زر لا 💔 */
+.btn.no {
+    background-color: #fce4ec;
+    color: #ff4d94;
+}
+
+/* --- جزء القلب النتيجة (مخفي في البداية) --- */
+.heart-result {
+    display: none; /* مخفي! الـ JavaScript هيظهره */
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    animation: popIn 0.5s ease-out; /* أنيميشن لظهور القلب */
+}
+
+.heart-result img {
+    width: 150px;
+    filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.7)); /* ظل مضيء للقلب */
+}
+
+/* أنيميشن ظهور القلب بشكل مفاجئ */
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
